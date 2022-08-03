@@ -1,0 +1,92 @@
+.btn {
+    display: inline-block;
+    display: inline-flex;
+    transition: background-color 0.3s 0s ease-in-out;
+    text-decoration: none;
+    text-transform: uppercase;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    position: relative;
+    border: 0;
+    padding: 0;
+    margin: 0;
+    cursor: pointer;
+}
+
+/* aqua */
+
+.btn-aqua {
+    background-color: #75cfd0;
+    color: #ffffff;
+}
+
+.btn-aqua:hover {
+    background-color: #82e1e2;
+    
+}
+
+.btn-aqua:active {
+    background-color: #2cd0c8;
+}
+
+/* pink */
+
+.btn-pink {
+    background-color: #F7567C;
+    color: #ffffff;
+}
+
+.btn-pink:hover {
+    background-color: #ff8296;
+
+}
+
+
+.btn-pink:active {
+    background-color: #f73e5a;
+}
+
+/* size */
+
+.btn-mid {
+    height: 64px;
+    vertical-align: middle;
+    width:100px;
+    font-size: 18px;
+}
+
+.btn-big {
+    height: 60px;
+    font-size: 24px;
+    font-weight: 600;
+    padding-left:20px;
+    padding-right: 20px;
+}
+
+.btn-withArrowLeft span {
+    display: block;
+    text-align: center;
+}
+
+.btn-withArrowLeft span:before {
+    content: ' ';
+    background: url('./svg/tri.svg');
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: center center;
+    width: 10px;
+    height: 20px;
+    display: block;
+    position: absolute;
+}
+
+/* arrow left + mid */
+
+.btn-mid.btn-withArrowLeft span {
+    margin-left: 27px;
+}
+
+.btn-mid.btn-withArrowLeft span:before {
+    left: 27px;
+}
