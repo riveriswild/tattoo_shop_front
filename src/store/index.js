@@ -3,7 +3,7 @@ import Vuex from 'vuex'
 import axios from 'axios'
 
 Vue.use(Vuex);
-// axios.defaults.baseURL = 'http://127.0.0.1:8000/api/';
+axios.defaults.baseURL = 'http://127.0.0.1:8000/';
 // // axios.defaults.headers.common['Authorization'] = AUTH_TOKEN;
 axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
 
@@ -13,32 +13,60 @@ export const store = new Vuex.Store( {
     state: {
         profile: {},
         info: {},
+        prices: {},
+        faq: {},
+        works: {},
+        reviews: {},
     },
   
    mutations: {
     SET_PROFILE: (state, profile) => {
         state.profile = profile;
     },
-    SET_INFO: (state, profile) => {
-        state.profile = profile;
+    SET_INFO: (state, info) => {
+        state.info = info;
+    },
+    SET_PRICES: (state, prices) => {
+        state.prices = prices;
+    },
+    SET_FAQ: (state, faq) => {
+        state.faq = faq;
+    },
+    SET_WORKS: (state, works) => {
+        state.works = works;
+    },
+    SET_REVIEWS: (state, reviews) => {
+        state.reviews = reviews;
     },
 },
 
    getters: {
-    PROFILE(state) {  // верни то что в стейте называется продуктз
+    PROFILE(state) {
         console.log('profile getter', state.profile)
         return state.profile;
     },
-    INFO(state) {  // верни то что в стейте называется продуктз
-        console.log('info getter', state.profile)
-        return state.profile;
+    INFO(state) {  
+        console.log('info getter', state.info)
+        return state.info;
+    },
+    PRICES(state) { 
+        return state.prices;
+    },
+    FAQ(state) { 
+        return state.faq;
+    },
+    WORKS(state) { 
+        return state.works;
+    },
+    REVIEWS(state) {  
+        return state.reviews;
     },
   },
   
    actions:{
     async GET_PROFILE_FROM_API({commit}) {
         try {
-            const profile = await axios('http://127.0.0.1:8000/', {
+            const profile = await axios('', {
                 method: "GET"
             });
             commit('SET_PROFILE', profile.data);
@@ -51,11 +79,59 @@ export const store = new Vuex.Store( {
 
     async GET_INFO_FROM_API({commit}) {
         try {
-            const info = await axios('http://127.0.0.1:8000/info/', {
+            const info = await axios('info/', {
                 method: "GET"
             });
-            commit('SET_PROFILE', info.data);
+            commit('SET_INFO', info.data);
             return info;
+        } catch (error) {
+            console.log(error);
+            return error;
+        }
+      },
+    async GET_PRICES_FROM_API({commit}) {
+        try {
+            const prices = await axios('prices/', {
+                method: "GET"
+            });
+            commit('SET_PRICES', prices.data);
+            return prices;
+        } catch (error) {
+            console.log(error);
+            return error;
+        }
+      },
+    async GET_FAQ_FROM_API({commit}) {
+        try {
+            const price = await axios('faq/', {
+                method: "GET"
+            });
+            commit('SET_FAQ', price.data);
+            return price;
+        } catch (error) {
+            console.log(error);
+            return error;
+        }
+      },
+    async GET_REVIEWS_FROM_API({commit}) {
+        try {
+            const price = await axios('reviews/', {
+                method: "GET"
+            });
+            commit('SET_REVIEWS', price.data);
+            return price;
+        } catch (error) {
+            console.log(error);
+            return error;
+        }
+      },
+    async GET_WORKS_FROM_API({commit}) {
+        try {
+            const price = await axios('works/', {
+                method: "GET"
+            });
+            commit('SET_WORKS', price.data);
+            return price;
         } catch (error) {
             console.log(error);
             return error;

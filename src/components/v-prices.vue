@@ -63,9 +63,31 @@
 </template>
 
 <script>
+import { mapActions, mapGetters} from 'vuex'
 export default {
-    name: 'v-prices'
+    name: 'v-prices',
+    components: {},
+        props: {},
+        data() {
+            return {
+                smth: {},
+            }
+        },
+        computed: {
+            ...mapGetters([
+                'PRICES',
+            ]),
+        },
+        methods: {
+            ...mapActions([
+                'GET_PRICES_FROM_API',
+                
+            ]),
+    },
+    async created() {
+      await this.GET_PRICES_FROM_API()
 
+    }
 }
 </script>
 

@@ -23,6 +23,7 @@
                         <div class="contentCols__item">
                             <div class="text">
                                 <p>{{INFO.info}}</p>
+                               
                             </div>
                         </div>
                         <div class="contentCols__item">
@@ -40,7 +41,7 @@
 <script>
 import { mapActions, mapGetters } from 'vuex'
 export default {
-    name: 'v-intro',
+    name: 'v-profile',
     components: {},
         props: {},
         data() {
