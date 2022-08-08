@@ -1,6 +1,6 @@
 <template>
   
-    <div class="view">
+        
         <div class="viewContent" style="left: -600vw;">
             <!--СЛАЙД-->
             <div class="viewContent__item">
@@ -35,7 +35,7 @@
                 </div>
                 </div>
         </div>
-    </div>
+        
 </template>
 
 <script>
@@ -71,5 +71,4 @@ export default {
 </script>
 
 <style>
-
 </style>

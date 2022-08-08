@@ -1,5 +1,7 @@
 <template>
+
   <div class="viewContent__item">
+    
                 <!--bordered content-->
                 <div class="content widthContainer">
                     <div class="contentTitle">Галерея работ</div>
