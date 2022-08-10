@@ -8,44 +8,24 @@
 
                         <div class="pricelist__col pricelist__col--main">
                             <div class="pricelist__text">
-                                Текст какой-то про цены, или как выбрать что-то, какие тату и почему разница в цене.
+                                {{INFO.price_info_sec}}
                             </div>
 
                             <div class="pricelist__prices">
-                                <div class="pricelist__item">
-                                    <div class="pricelist__one">
-                                        <span class="pricelist__imgContainer"><img class="pricelist__img" src="img/tattoo4.png"></span>
-                                        <span class="pricelist__price">От 1500₽</span>
-                                    </div>
-                                </div>
+                               
 
-                                <div class="pricelist__item">
-                                    <div class="pricelist__one">
-                                <span class="pricelist__imgContainer">
-                                    <img class="pricelist__img" src="img/tattoo4.png">
-                                </span>
-                                        <span class="pricelist__price">
-                                    От 3000₽
-                                </span>
-                                    </div>
-                                </div>
+                                <v-price-item
+                            v-for="price in PRICES"
+                            :key="price.id"
+                            :price_itm="price"
+                            />
 
-                                <div class="pricelist__item">
-                                    <div class="pricelist__one">
-                                <span class="pricelist__imgContainer">
-                                    <img class="pricelist__img" src="img/tattoo4.png">
-                                </span>
-                                        <span class="pricelist__price">
-                                    От 4000₽
-                                </span>
-                                    </div>
-                                </div>
                             </div>
                         </div>
 
                         <div class="pricelist__col pricelist__col--calc">
                             <div class="pricelist__text">
-                                Еще что-то про расчет цены, текст текст и так далее, ну сюда напишем что-нибудь, понятно.
+                                {{INFO.price_info_sec}}
                             </div>
 
                             <div class="pricelist__calc">
@@ -63,11 +43,13 @@
 </template>
 
 <script>
+import vPriceItem from "./v-price-item.vue"
 import { mapActions, mapGetters} from 'vuex'
 export default {
     name: 'v-prices',
-    components: {},
-        props: {},
+    components: { vPriceItem},
+        props: {
+        },
         data() {
             return {
                 smth: {},
@@ -76,21 +58,75 @@ export default {
         computed: {
             ...mapGetters([
                 'PRICES',
+                'INFO'
             ]),
         },
         methods: {
             ...mapActions([
                 'GET_PRICES_FROM_API',
+                'GET_INFO_FROM_API'
                 
             ]),
     },
     async created() {
       await this.GET_PRICES_FROM_API()
+      await this.GET_INFO_FROM_API()
 
     }
 }
 </script>
 
 <style>
+.pricelist {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.pricelist__col--main {
+    flex-basis: 686px;
+    padding-top: 37px;
+}
+
+.pricelist__col--calc {
+    width: 450px;
+}
+
+.pricelist__text {
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 21px;
+    margin-bottom: 50px;
+}
+
+.pricelist__prices {
+    display: flex;
+    justify-content: space-between;
+}
+
+.pricelist__imgContainer {
+    width: 215px;
+    height: 215px;
+    overflow: hidden;
+    display: block;
+}
+
+.pricelist__img {
+    width: 100%;
+}
+
+.pricelist__price {
+    font-size: 32px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    line-height: 40px;
+    text-transform: uppercase;
+    margin-top: 10px;
+    display: block;
+}
+
+.pricelist__calc .btn {
+    width: 333px;
+}
 
 </style>
