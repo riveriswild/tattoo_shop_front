@@ -1,19 +1,10 @@
 <template>
     <div class="full">
+                     <div class="viewContent__item">
 
-    <div class="header">
+                сюда галерею
 
-        <div class="header__button">
-            <div class="header__buttonContainer widthContainer">
-                <a href="#" 
-                class="btn btn-aqua btn-mid btn-withArrowLeft"
-                
-                >
-                <span>Про нати</span>
-                </a>
             </div>
-        </div>
-    </div>
 
                 <!--bordered content-->
 
