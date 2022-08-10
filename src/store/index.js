@@ -59,6 +59,7 @@ export const store = new Vuex.Store( {
         return state.works;
     },
     REVIEWS(state) {  
+        console.log(state.reviews)
         return state.reviews;
     },
   },
@@ -103,11 +104,11 @@ export const store = new Vuex.Store( {
       },
     async GET_FAQ_FROM_API({commit}) {
         try {
-            const price = await axios('faq/', {
+            const faq = await axios('faq/', {
                 method: "GET"
             });
-            commit('SET_FAQ', price.data);
-            return price;
+            commit('SET_FAQ', faq.data);
+            return faq;
         } catch (error) {
             console.log(error);
             return error;
@@ -115,11 +116,11 @@ export const store = new Vuex.Store( {
       },
     async GET_REVIEWS_FROM_API({commit}) {
         try {
-            const price = await axios('reviews/', {
+            const reviews = await axios('reviews/', {
                 method: "GET"
             });
-            commit('SET_REVIEWS', price.data);
-            return price;
+            commit('SET_REVIEWS', reviews.data);
+            return reviews;
         } catch (error) {
             console.log(error);
             return error;
@@ -127,11 +128,11 @@ export const store = new Vuex.Store( {
       },
     async GET_WORKS_FROM_API({commit}) {
         try {
-            const price = await axios('works/', {
+            const works = await axios('works/', {
                 method: "GET"
             });
-            commit('SET_WORKS', price.data);
-            return price;
+            commit('SET_WORKS', works.data);
+            return works;
         } catch (error) {
             console.log(error);
             return error;
