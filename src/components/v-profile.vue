@@ -1,13 +1,8 @@
 <template>
   
         
-        <div class="viewContent" style="left: -600vw;">
+        <div class="viewContent">
             <!--СЛАЙД-->
-            <div class="viewContent__item">
-
-                сюда галерею
-
-            </div>
             <!--СЛАЙД-->
 
             <!--СЛАЙД-->
@@ -18,16 +13,16 @@
 
                     <div class="contentCols">
                         <div class="contentCols__item">
-                            <img src="../assets/img/photo1.png" alt="Nati">
+                            <img :src="PROFILE.image" alt="Nati">
                         </div>
                         <div class="contentCols__item">
                             <div class="text">
-                                <p>{{INFO.info}}</p>
+                                <p>{{PROFILE.description}}</p>
                                
                             </div>
                         </div>
                         <div class="contentCols__item">
-                            <img src="../assets/img/photo2.png" alt="Tattoo">
+                            <img :src="PROFILE.image_work" alt="Tattoo">
                         </div>
                     </div>
 
@@ -71,4 +66,59 @@ export default {
 </script>
 
 <style>
+
+.view {
+    overflow: hidden;
+}
+
+.viewContent {
+    display: flex;
+    position: relative;
+}
+
+.viewContent__item {
+    flex-basis: 100%;
+    flex-grow: 0;
+    flex-shrink: 0;
+}
+
+/* CONTENT */
+
+.contentTitle {
+    font-size: 32px;
+    color: #000000;
+    font-family: 'Montserrat', sans-serif;
+    line-height: 40px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+
+} 
+
+.contentCols {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.contentCols--gallery {
+    align-items: stretch;
+}
+
+.contentCols.top {
+    align-items: flex-start;
+}
+
+.contentCols__item + .contentCols__item {
+    padding-left: 20px;
+}
+
+.text {
+    font-size: 18px;
+    font-weight: 400;
+    color: #000000;
+}
+
+.text p {
+    margin-bottom: 10px;
+}
 </style>
