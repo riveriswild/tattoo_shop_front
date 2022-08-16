@@ -19,7 +19,6 @@
                         <div class="contentCols__item gallery">
                             <div v-for="item in this.sortedWorks" v-bind:key="item.id">
                                     <span class="gallery__item"><img :src="item.image"></span>
-                                    <span class="gallery__item active"><img :src="item.image"></span>
                             </div>
 
 
@@ -66,6 +65,11 @@ export default {
             //     }
             // }
         },
+        watch: {
+            selected: {
+                handler: "sortByStatus"
+            }
+        },
 
         methods: {
             ...mapActions([
@@ -85,10 +89,10 @@ export default {
                 },
                 
                 showOld(){
-                    return this.selected = 'new'
+                    return this.selected = 'old'
                 },
                 showNew(){
-                    return this.selected = 'old'
+                    return this.selected = 'new'
                 },
                 showSketch(){
                     return this.selected = 'sketch'
