@@ -12,26 +12,6 @@
                         </div>
                         <div class="contentCols__item gallery">
 
-                            <span class="gallery__item"><img src="img/tattoo1.jpg"></span>
-                            <span class="gallery__item active"><img src="img/tattoo2.jpg"></span>
-                            <span class="gallery__item"><img src="img/tattoo3.jpg"></span>
-                            <span class="gallery__item"><img src="img/tattoo1.jpg"></span>
-                            <span class="gallery__item"><img src="img/tattoo2.jpg"></span>
-                            <span class="gallery__item"><img src="img/tattoo3.jpg"></span>
-                            <span class="gallery__item"><img src="img/tattoo1.jpg"></span>
-                            <span class="gallery__item"><img src="img/tattoo2.jpg"></span>
-                            <span class="gallery__item"><img src="img/tattoo3.jpg"></span>
-                            <span class="gallery__item"><img src="img/tattoo3.jpg"></span>
-                            <span class="gallery__item"><img src="img/tattoo1.jpg"></span>
-                            <span class="gallery__item"><img src="img/tattoo2.jpg"></span>
-                            <span class="gallery__item"><img src="img/tattoo3.jpg"></span>
-                            <span class="gallery__item"><img src="img/tattoo3.jpg"></span>
-                            <span class="gallery__item"><img src="img/tattoo3.jpg"></span>
-                            <span class="gallery__item"><img src="img/tattoo3.jpg"></span>
-                            <span class="gallery__item"><img src="img/tattoo3.jpg"></span>
-                            <span class="gallery__item"><img src="img/tattoo3.jpg"></span>
-                            <span class="gallery__item"><img src="img/tattoo3.jpg"></span>
-                            <span class="gallery__item"><img src="img/tattoo3.jpg"></span>
                         </div>
 
                     </div>
@@ -44,8 +24,48 @@
 </template>
 
 <script>
+import { mapActions, mapGetters} from 'vuex';
+
 export default {
-    name: 'v-gallery'
+    name: 'v-template',
+    components: {},
+        props: {},
+        data() {
+            return {
+                status: [
+                    {name: 'Свежие работы', value: 'new'},
+                    {name: 'Зажившие работы', value: 'old'},
+                    {name: 'Эскизы', value: 'sketch'},
+                ],
+                sortedWorks: [],
+                selected: 'Свежие работы'
+            }
+        },
+        computed: {
+            ...mapGetters([
+                'WORKS'
+            ]),
+        },
+
+        methods: {
+            ...mapActions([
+                'GET_WORKS_FROM_API'
+                ]),
+
+                sortByStatus(status){
+                let vm = this
+                this.sortedWorks = [...this.WORKS]
+                this.sortedWorks = this.sortedWorks.filter(function(item) {
+                    vm.selected = status.name
+                    return item.status === status.name
+                })
+                }
+
+        },
+    async created() {
+        await this.GET_WORKS_FROM_API()
+        this.sortByStatus()
+    }
 }
 </script>
 
