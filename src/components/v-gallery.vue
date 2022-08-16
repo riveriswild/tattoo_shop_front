@@ -17,8 +17,7 @@
                             <img src="img/photo2.png" class="gallery__mainpic" alt="T1">
                         </div>
                         <div class="contentCols__item gallery">
-                            <div :selected="selected"
-            :options="status" v-for="item in this.sortedWorks" v-bind:key="item.id">
+                            <div v-for="item in this.sortedWorks" v-bind:key="item.id">
                                     <span class="gallery__item"><img :src="item.image"></span>
                                     <span class="gallery__item active"><img :src="item.image"></span>
                             </div>
@@ -45,41 +44,44 @@ export default {
         props: {},
         data() {
             return {
-                status: [
-                    {name: 'Свежие работы', value: 'new'},
-                    {name: 'Зажившие работы', value: 'old'},
-                    {name: 'Эскизы', value: 'sketch'},
-                ],
+                // status: [
+                //     {name: 'Свежие работы', value: 'new'},
+                //     {name: 'Зажившие работы', value: 'old'},
+                //     {name: 'Эскизы', value: 'sketch'},
+                // ],
                 sortedWorks: [],
-                selected: 'Свежие работы'
+                selected: 'new',
             }
         },
         computed: {
             ...mapGetters([
                 'WORKS'
             ]),
+        
+            //         filteredWorks() {
+            //     if (this.sortedWorks.length) {
+            //         return this.sortedWorks
+            //     } else {
+            //         return this.WORKS
+            //     }
+            // }
         },
-          watch: {
-    // эта функция запускается при любом изменении вопроса
-            // selected: this.sortByStatus()
-    
-  },
 
         methods: {
             ...mapActions([
                 'GET_WORKS_FROM_API'
                 ]),
 
-                sortByStatus(status){
+                sortByStatus(){
                 let vm = this
                 this.sortedWorks = [...this.WORKS]
                 this.sortedWorks = this.sortedWorks.filter(function(item) {
                     console.log(item)
-                    vm.selected = status.value
-                    console.log(vm.selected)
-                    // console.log(item.image_status)
-                    return item.image_status === status.value
+                    console.log(vm)
+                   
+                    return item.image_status === vm.selected
                 })
+                console.log('sorted', this.sortedWorks)
                 },
                 
                 showOld(){
