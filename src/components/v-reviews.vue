@@ -55,53 +55,5 @@ export default {
 </script>
 
 <style>
-
-.review {
-    overflow-x: auto;
-    overflow-y: auto;
-    -ms-overflow-style: none;  /* IE and Edge */
-    scrollbar-width: none;  /* Firefox */
-}
-.review::-webkit-scrollbar {
-  display: none;
-}
-
-.review__content {
-    display: flex;
-}
-
-.review__item {
-    flex-basis: 450px;
-    flex-shrink: 0;
-    flex-grow: 0;
-    margin-right: 100px;
-    margin-bottom: 20px;
-}
-
-.review__image {
-    font-size: 0;
-    margin-bottom: 33px;
-}
-
-.review__image img {
-    width: 45%;
-}
-
-.review__image img + img {
-    margin-left: 19px;
-}
-
-.review__name {
-    font-size: 24px;
-    text-transform: uppercase;
-    font-weight: 600;
-    margin-bottom: 18px;
-}
-
-.review__text {
-    font-size: 18px;
-    font-weight: 400;
-    line-height: 21px;
-}
-
+@import "../assets/css/style.css";
 </style>

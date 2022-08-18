@@ -48,7 +48,6 @@ h1, h2, p {
     text-align: center;
     color: #000000;
     text-transform: uppercase;
-    margin-top: 82px;
 }
 
 .header__button {
@@ -80,6 +79,7 @@ h1, h2, p {
     flex-basis: 100%;
     flex-grow: 0;
     flex-shrink: 0;
+    position: relative;
 }
 
 /* CONTENT */
@@ -260,6 +260,37 @@ h1, h2, p {
     width: 333px;
 }
 
+/* RB BUTTONS */
+
+.rbButtons {
+    position: absolute;
+    left:0;
+    width: 275px;
+}
+
+.rbButtons.right {
+    left: auto;
+    right: 0;
+    text-align: right;
+}
+
+.rbButtons__item {
+    margin-bottom: 20px;
+}
+
+.rbButtons__item .btn {
+    transition: all 0.3s 0s ease-in-out;
+}
+
+.rbButtons .btn-mid {
+    width: 239px;
+    white-space: nowrap;
+}
+
+.rbButtons__item.active .btn-mid {
+    width: 275px;
+}
+
 /* CONTACT */
 
 .contact {
@@ -430,4 +461,3 @@ h1, h2, p {
     display: flex;
     justify-content: space-between;
 }
-

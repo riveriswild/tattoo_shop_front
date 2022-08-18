@@ -77,56 +77,6 @@ export default {
 </script>
 
 <style>
-.pricelist {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.pricelist__col--main {
-    flex-basis: 686px;
-    padding-top: 37px;
-}
-
-.pricelist__col--calc {
-    width: 450px;
-}
-
-.pricelist__text {
-    font-size: 18px;
-    font-weight: 400;
-    line-height: 21px;
-    margin-bottom: 50px;
-}
-
-.pricelist__prices {
-    display: flex;
-    justify-content: space-between;
-}
-
-.pricelist__imgContainer {
-    width: 215px;
-    height: 215px;
-    overflow: hidden;
-    display: block;
-}
-
-.pricelist__img {
-    width: 100%;
-}
-
-.pricelist__price {
-    font-size: 32px;
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 400;
-    line-height: 40px;
-    text-transform: uppercase;
-    margin-top: 10px;
-    display: block;
-}
-
-.pricelist__calc .btn {
-    width: 333px;
-}
+@import "../assets/css/style.css";
 
 </style>
